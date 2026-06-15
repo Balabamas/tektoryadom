@@ -72,7 +72,7 @@ input{font-family:inherit}
 }
 .scr.active{opacity:1;visibility:visible;transform:none;z-index:2}
 .scr.back{transform:translateX(-26px)}
-.scr-body{flex:1;overflow-y:auto;padding:6px 18px 120px;-webkit-overflow-scrolling:touch}
+.scr-body{flex:1;overflow-y:auto;padding:calc(env(safe-area-inset-top) + 20px) 18px 120px;-webkit-overflow-scrolling:touch}
 .scr-body::-webkit-scrollbar{display:none}
 .scr.has-tab .scr-body{padding-bottom:104px}
 
@@ -147,7 +147,7 @@ input{font-family:inherit}
 .spec:active{transform:scale(.985)}
 .spec .ava-wrap{position:relative;width:78px;height:88px;flex:0 0 auto;border-radius:18px;overflow:hidden;
   background:linear-gradient(160deg,#9cc3da,#c3dded)}
-.spec .ava-wrap svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:96%;width:auto}
+.spec .ava-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .spec .ava-wrap .free{position:absolute;top:6px;left:6px;width:9px;height:9px;border-radius:50%;
   background:#34c759;border:2px solid #fff}
 .spec .info{flex:1;min-width:0;display:flex;flex-direction:column}
@@ -167,13 +167,13 @@ input{font-family:inherit}
 .hero{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:236px;padding:16px;
   display:flex;flex-direction:column;justify-content:space-between;
   background:linear-gradient(160deg,#8fbdd6,#b6d6e6);box-shadow:0 18px 40px -18px rgba(40,80,110,.5)}
-.hero .photo{position:absolute;right:-8px;bottom:0;height:104%;width:66%;display:flex;align-items:flex-end;justify-content:center}
-.hero .photo svg{height:100%;width:auto;filter:drop-shadow(0 10px 20px rgba(0,0,0,.18))}
+.hero .photo{position:absolute;right:14px;top:14px;bottom:14px;width:43%;border-radius:18px;overflow:hidden;box-shadow:0 12px 26px -12px rgba(20,50,65,.5);z-index:1}
+.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .hero .rt{position:relative;z-index:2;align-self:flex-start;display:inline-flex;align-items:center;gap:5px;
   background:rgba(255,255,255,.6);padding:7px 13px;border-radius:999px;font-weight:700;font-size:13px;
   backdrop-filter:blur(8px);border:1px solid var(--line)}
 .hero .rt svg{width:13px;height:13px;color:var(--gold)}
-.hero .id{position:relative;z-index:2;max-width:66%}
+.hero .id{position:relative;z-index:2;max-width:52%}
 .hero .id .nm{font-family:var(--display);font-weight:800;font-size:32px;line-height:.97;color:#fff;
   text-shadow:0 2px 14px rgba(30,60,80,.25)}
 .hero .id .rl{margin-top:8px;font-size:12px;color:rgba(255,255,255,.92);font-weight:500}
@@ -221,7 +221,7 @@ input{font-family:inherit}
 .mini-spec{display:flex;align-items:center;gap:12px;padding:12px;border-radius:18px}
 .mini-spec .av{width:50px;height:54px;border-radius:14px;overflow:hidden;position:relative;
   background:linear-gradient(160deg,#9cc3da,#c3dded);flex:0 0 auto}
-.mini-spec .av svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:96%}
+.mini-spec .av img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .mini-spec .nm{font-family:var(--display);font-weight:700;font-size:15px}
 .mini-spec .rl{font-size:12px;color:var(--muted);margin-top:2px}
 .mini-spec .rt{margin-left:auto;display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:13px}
@@ -270,7 +270,7 @@ input{font-family:inherit}
 .order .o-top{display:flex;align-items:center;gap:13px}
 .order .o-av{width:54px;height:58px;border-radius:15px;overflow:hidden;position:relative;flex:0 0 auto;
   background:linear-gradient(160deg,#9cc3da,#c3dded)}
-.order .o-av svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:96%}
+.order .o-av img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .order .o-nm{font-family:var(--display);font-weight:700;font-size:16px}
 .order .o-rl{font-size:12.5px;color:var(--muted);margin-top:2px}
 .badge{margin-left:auto;font-size:11px;font-weight:700;padding:5px 11px;border-radius:999px;white-space:nowrap}
@@ -317,7 +317,7 @@ input{font-family:inherit}
 .modal-card .url{font-size:12px;color:var(--accent);word-break:break-all;margin-bottom:18px}
 
 /* floating share btn */
-.fab-share{position:absolute;top:50px;right:16px;z-index:7;width:38px;height:38px;border-radius:12px;
+.fab-share{position:absolute;top:calc(env(safe-area-inset-top) + 16px);right:16px;z-index:7;width:38px;height:38px;border-radius:12px;
   display:grid;place-items:center;background:var(--chip);border:1px solid var(--line);
   backdrop-filter:blur(10px);box-shadow:var(--glass)}
 .fab-share svg{width:17px;height:17px;color:var(--accent)}
@@ -365,7 +365,7 @@ const I={
 };
 // status bar right cluster
 const SBR='<span class="sb-r"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h3v4H2zM7 13h3v8H7zM12 9h3v12h-3zM17 4h3v17h-3z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c3.5 0 6.5 1.3 8.8 3.5l-1.4 1.4A10 10 0 0 0 12 8a10 10 0 0 0-7.4 2.9L3.2 9.5A12.6 12.6 0 0 1 12 6zm0 4c2 0 3.8.8 5.2 2.1l-1.5 1.5A5 5 0 0 0 12 12a5 5 0 0 0-3.7 1.6l-1.5-1.5A7 7 0 0 1 12 10zm0 4c.9 0 1.7.4 2.3 1L12 21l-2.3-2A3 3 0 0 1 12 14z"/></svg><svg viewBox="0 0 26 24" fill="none"><rect x="1" y="7" width="20" height="11" rx="3" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="9" width="15" height="7" rx="1.5" fill="currentColor"/><rect x="22" y="10.5" width="2" height="4" rx="1" fill="currentColor"/></svg></span>';
-const statusbar='<div class="statusbar"><span>9:41</span>'+SBR+'</div>';
+const statusbar='';
 
 /* =========================================================
    AVATAR (parametric flat nurse)
@@ -403,41 +403,37 @@ function avatar(o={}){
 /* =========================================================
    DATA
 ========================================================= */
+function ph(s){return '<img src="'+s.photo+'" alt="'+s.name+'">';}
+
 const SPECS=[
- {id:'olga',name:'Ольга Иванова',role:'Медицинская сестра · сиделка',tag:'Сиделка',
+ {id:'olga',gender:'f',photo:'img/olga.jpg',name:'Ольга Иванова',role:'Медицинская сестра',tag:'Медсестра',
   rating:'5.0',reviews:55,years:'8 лет',services:'9 видов',price:1200,dist:'1,2 км',free:true,
-  ava:{style:'wave',hair:'#6b4a37',skin:'#f6cda6'},
   about:'Дипломированная медсестра с опытом ухода за пожилыми и послеоперационными пациентами. Капельницы, инъекции, контроль давления и сахара.'},
- {id:'marina',name:'Марина Соколова',role:'Сиделка с проживанием',tag:'Сиделка 24/7',
-  rating:'4.9',reviews:38,years:'6 лет',services:'7 видов',price:1000,dist:'2,1 км',free:true,
-  ava:{style:'bob',hair:'#caa15a',skin:'#f4d3b2'},
-  about:'Тёплый и внимательный уход с проживанием. Готовка, гигиена, прогулки, компаньонство для пожилых людей.'},
- {id:'elena',name:'Елена Петрова',role:'Медицинская сестра',tag:'Медсестра',
-  rating:'4.8',reviews:92,years:'12 лет',services:'11 видов',price:1500,dist:'0,8 км',free:false,
-  ava:{style:'wave',hair:'#3b3b40',skin:'#e9b98f'},
-  about:'Процедурная медсестра высшей категории. Перевязки, уколы, уход за стомами и пролежнями на дому.'},
- {id:'anna',name:'Анна Кузнецова',role:'Сиделка · реабилитация',tag:'Реабилитация',
-  rating:'5.0',reviews:24,years:'4 года',services:'6 видов',price:950,dist:'3,4 км',free:true,
-  ava:{style:'bob',hair:'#8a5a3c',skin:'#f6cda6'},
-  about:'Помощь в восстановлении после травм и инсультов: ЛФК, перемещение, поддержка мобильности.'},
- {id:'tatyana',name:'Татьяна Морозова',role:'Медицинская сестра',tag:'Медсестра',
-  rating:'4.7',reviews:61,years:'9 лет',services:'8 видов',price:1300,dist:'1,9 км',free:true,
-  ava:{style:'wave',hair:'#5a3b2a',skin:'#ecc6a0'},
-  about:'Опытная медсестра для патронажа на дому. Внимательна к деталям, аккуратные процедуры.'},
- {id:'svetlana',name:'Светлана Волкова',role:'Сиделка',tag:'Уборка · уход',
-  rating:'4.9',reviews:47,years:'7 лет',services:'5 видов',price:1100,dist:'2,7 км',free:false,
-  ava:{style:'bob',hair:'#7a4a30',skin:'#f4d3b2'},
-  about:'Бытовой уход и поддержка: уборка, готовка, помощь по дому и сопровождение.'}
+ {id:'anna',gender:'f',photo:'img/anna.jpg',name:'Анна Кузнецова',role:'Медицинская сестра',tag:'Медсестра',
+  rating:'4.9',reviews:38,years:'6 лет',services:'7 видов',price:1100,dist:'2,1 км',free:true,
+  about:'Процедурная медсестра. Перевязки, уколы, забор анализов на дому. Внимательная и аккуратная в работе.'},
+ {id:'sergey',gender:'m',photo:'img/sergey.jpg',name:'Сергей Волков',role:'Домашний помощник',tag:'Помощник',
+  rating:'4.8',reviews:41,years:'5 лет',services:'6 видов',price:900,dist:'1,7 км',free:true,
+  about:'Помощь по дому и сопровождение: покупки, бытовые дела, прогулки, поддержка маломобильных людей.'},
+ {id:'dmitry',gender:'m',photo:'img/dmitry.jpg',name:'Дмитрий Морозов',role:'Медбрат · сиделка',tag:'Сиделка',
+  rating:'4.9',reviews:62,years:'9 лет',services:'8 видов',price:1300,dist:'0,8 км',free:false,
+  about:'Опытный медбрат. Уход за лежачими и послеоперационными пациентами, перемещение, гигиена, медицинские процедуры.'},
+ {id:'elena',gender:'f',photo:'img/elena.jpg',name:'Елена Петрова',role:'Медицинская сестра',tag:'Медсестра',
+  rating:'4.8',reviews:92,years:'12 лет',services:'11 видов',price:1500,dist:'3,4 км',free:true,
+  about:'Медсестра высшей категории. Уход за стомами и пролежнями, капельницы, патронаж на дому.'},
+ {id:'anton',gender:'m',photo:'img/anton.jpg',name:'Антон Лебедев',role:'Домашний помощник',tag:'Уход, уборка и готовка',
+  rating:'4.7',reviews:24,years:'3 года',services:'5 видов',price:850,dist:'2,7 км',free:false,
+  about:'Уборка, готовка и бытовая поддержка по хозяйству. Энергичный и ответственный помощник.'}
 ];
-const FILTERS=['Все','Сиделка','Медсестра','Сиделка 24/7','Реабилитация','Уборка · уход'];
-const DAYS=[{d:'пн',n:24},{d:'вт',n:25},{d:'ср',n:28},{d:'чт',n:27}];
+const FILTERS=['Все','Медсестра','Помощник','Сиделка','Уход, уборка и готовка'];
+const DAYS=[{d:'вт',n:16},{d:'ср',n:17},{d:'чт',n:18},{d:'пт',n:19}];
 const SLOTS=[{t:'10:00 – 11:00'},{t:'16:00 – 17:00'},{t:'14:00 – 15:00',off:true},{t:'17:30 – 18:30'}];
-const SERVICES=['Уход за пожилым','Мед. процедуры','Сиделка на день','Реабилитация'];
+const SERVICES=['Уход за пожилым','Мед. процедуры','Помощь на день','Уборка и готовка'];
 
 /* =========================================================
    STATE + NAV
 ========================================================= */
-const state={current:null,filter:'Все',date:'28',slot:'17:30 – 18:30',service:'Уход за пожилым',hours:2,fav:{},ordersTab:'active'};
+const state={current:null,filter:'Все',date:'18',slot:'17:30 – 18:30',service:'Уход за пожилым',hours:2,fav:{},ordersTab:'active'};
 const vp=document.getElementById('viewport');
 let stack=[];
 
@@ -478,7 +474,7 @@ function viewSplash(){
    <div class="blob b1"></div><div class="blob b2"></div>
    <div class="logo-mark reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#1f6f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><path d="M12 13.5s-3-1.7-3-4a1.9 1.9 0 0 1 3-1.5A1.9 1.9 0 0 1 15 9.5c0 2.3-3 4-3 4z" fill="#1f6f7d" stroke="none"/></svg></div>
    <div class="brand reveal" style="animation-delay:.08s">Те<b>Кто</b>Рядом</div>
-   <div class="tagline reveal" style="animation-delay:.16s">Забота рядом, когда она нужна.<br>Проверенные сиделки и медсёстры возле вас.</div>
+   <div class="tagline reveal" style="animation-delay:.16s">Забота, когда она нужна.<br>Сервис домашних помощников.</div>
    <div class="splash-cta reveal" style="animation-delay:.24s">
      <button class="btn btn-primary" onclick="go('search')">Найти специалиста ${I.chev}</button>
      <button class="btn btn-ghost" onclick="toast('Демо-режим: вход не требуется')">Войти</button>
@@ -488,14 +484,14 @@ function viewSplash(){
 
 function specCard(s){
  return `<div class="spec reveal" onclick="openProfile('${s.id}')">
-   <div class="ava-wrap">${avatar(s.ava)}${s.free?'<span class="free"></span>':''}</div>
+   <div class="ava-wrap">${ph(s)}${s.free?'<span class="free"></span>':''}</div>
    <div class="info">
      <div class="nm">${s.name}</div>
      <div class="rl">${s.role}</div>
      <div class="meta"><span class="rt">${I.star}${s.rating}</span><span class="dot"></span><span>${s.reviews} отз.</span><span class="dot"></span><span>${s.dist}</span></div>
      <div class="foot">
        <div class="price">${s.price} ₽<span> /час</span></div>
-       ${s.free?'<span class="freeTag">свободна сегодня</span>':'<span style="font-size:11px;color:var(--muted)">занята до чт</span>'}
+       ${s.free?`<span class="freeTag">${s.gender==='m'?'свободен сегодня':'свободна сегодня'}</span>`:`<span style="font-size:11px;color:var(--muted)">${s.gender==='m'?'занят до чт':'занята до чт'}</span>`}
      </div>
    </div>
  </div>`;
@@ -507,8 +503,8 @@ function viewSearch(){
   <button class="fab-share" onclick="openModal()">${I.share}</button>
   <div class="scr-body">
    <div class="greet reveal"><small>Здравствуйте 👋</small><h1>Кто рядом<br>с вами сегодня</h1>
-     <span class="loc">${I.pin} Москва · в радиусе 5 км</span></div>
-   <div class="searchbar reveal" style="animation-delay:.05s">${I.search}<input placeholder="Сиделка, медсестра, уход…"></div>
+     <span class="loc">${I.pin} Улан-Удэ · в радиусе 5 км</span></div>
+   <div class="searchbar reveal" style="animation-delay:.05s">${I.search}<input placeholder="медсестра, помощь, уход…"></div>
    <div class="chips reveal" style="animation-delay:.1s">
      ${FILTERS.map(f=>`<button class="chip ${state.filter===f?'on':''}" onclick="setFilter('${f}')">${f}</button>`).join('')}
    </div>
@@ -530,7 +526,7 @@ function viewProfile(){
      <button class="iconbtn" style="color:${fav?'#e8607a':'var(--ink)'}" onclick="toggleFav('${s.id}')">${fav?I.heartF:I.heart}</button>
    </div>
    <div class="hero reveal">
-     <div class="photo">${avatar(Object.assign({coat:'#ffffff'},s.ava))}</div>
+     <div class="photo">${ph(s)}</div>
      <span class="rt">${I.star}${s.rating}</span>
      <div class="id"><div class="nm">${s.name.split(' ').join('<br>')}</div><div class="rl">${s.role}</div></div>
    </div>
@@ -571,7 +567,7 @@ function viewCheckout(){
   <div class="scr-body" style="padding-bottom:150px">
    <div class="topbar reveal"><button class="iconbtn" onclick="back()">${I.back}</button><span class="h-title">Оформление заказа</span><span style="width:40px"></span></div>
    <div class="mini-spec glass reveal">
-     <div class="av">${avatar(s.ava)}</div>
+     <div class="av">${ph(s)}</div>
      <div><div class="nm">${s.name}</div><div class="rl">${s.role}</div></div>
      <span class="rt">${I.star}${s.rating}</span>
    </div>
@@ -585,7 +581,7 @@ function viewCheckout(){
    <div class="row-card glass reveal" style="animation-delay:.14s">${I.clock}<div class="rc-main"><b>${state.hours} ч.</b><small>минимальный заказ — 2 часа</small></div>
      <div class="stepper"><button onclick="setHours(-1)">−</button><b>${state.hours} ч</b><button onclick="setHours(1)">+</button></div></div>
    <div class="field-label reveal" style="animation-delay:.16s">Адрес</div>
-   <div class="row-card glass reveal" style="animation-delay:.18s">${I.pin}<div class="rc-main"><b>ул. Тверская, 12, кв. 45</b><small>Москва · подъезд 2, этаж 4</small></div></div>
+   <div class="row-card glass reveal" style="animation-delay:.18s">${I.pin}<div class="rc-main"><b>ул. Ленина, 27, кв. 14</b><small>Улан-Удэ · Советский р-н, этаж 3</small></div></div>
    <div class="field-label reveal" style="animation-delay:.2s">Оплата</div>
    <div class="row-card glass reveal" style="animation-delay:.22s">${I.card}<div class="rc-main"><b>Visa •• 4242</b><small>после визита, без предоплаты</small></div></div>
    <div class="summary glass reveal" style="animation-delay:.24s">
@@ -606,10 +602,10 @@ function viewSuccess(){
   <div class="scr-body">
    <div class="check">${I.check}</div>
    <div class="success-h">Заявка отправлена!</div>
-   <div class="success-p">${s.name} получила вашу заявку и свяжется с вами в течение 15 минут для подтверждения.</div>
+   <div class="success-p">${s.name} ${s.gender==='m'?'получил':'получила'} вашу заявку и свяжется с вами в течение 15 минут для подтверждения.</div>
    <div class="success-card glass">
      <div class="mini-spec" style="padding:0;box-shadow:none;background:none;border:none">
-       <div class="av">${avatar(s.ava)}</div><div><div class="nm">${s.name}</div><div class="rl">${state.date} июня · ${state.slot}</div></div>
+       <div class="av">${ph(s)}</div><div><div class="nm">${s.name}</div><div class="rl">${state.date} июня · ${state.slot}</div></div>
        <span class="rt">${state._total} ₽</span>
      </div>
    </div>
@@ -622,15 +618,16 @@ function viewSuccess(){
 function viewOrders(){
  const s=SPECS.find(x=>x.id===state.current)||SPECS[0];
  const active=`<div class="order glass reveal">
-   <div class="o-top"><div class="o-av">${avatar(s.ava)}</div>
+   <div class="o-top"><div class="o-av">${ph(s)}</div>
      <div><div class="o-nm">${s.name}</div><div class="o-rl">${state.service}</div></div>
      <span class="badge wait">Ожидает</span></div>
    <div class="o-info"><div><small>Дата</small><b>${state.date} июня</b></div><div><small>Время</small><b>${state.slot}</b></div><div><small>Сумма</small><b>${state._total||2568} ₽</b></div></div>
    <div class="o-act"><button class="a-ghost" onclick="toast('Открываем чат')">Чат</button><button class="a-line" onclick="toast('Заказ отменён')">Отменить</button></div>
  </div>`;
+ const pastSpec=SPECS.find(x=>x.id==='elena');
  const past=`<div class="order glass reveal" style="animation-delay:.06s">
-   <div class="o-top"><div class="o-av">${avatar(SPECS[2].ava)}</div>
-     <div><div class="o-nm">${SPECS[2].name}</div><div class="o-rl">Мед. процедуры</div></div>
+   <div class="o-top"><div class="o-av">${ph(pastSpec)}</div>
+     <div><div class="o-nm">${pastSpec.name}</div><div class="o-rl">Мед. процедуры</div></div>
      <span class="badge done">Завершён</span></div>
    <div class="o-info"><div><small>Дата</small><b>2 июня</b></div><div><small>Время</small><b>11:00–13:00</b></div><div style="display:flex;flex-direction:column"><small>Ваша оценка</small><span class="rate-stars" style="margin-left:0;margin-top:2px">${I.star.repeat(5)}</span></div></div>
    <div class="o-act"><button class="a-ghost" onclick="openProfile('elena')">Заказать снова</button></div>

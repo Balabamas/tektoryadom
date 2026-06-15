@@ -1,8 +1,10 @@
 /* ТеКтоРядом — минимальный офлайн-кэш */
-const CACHE = 'tkr-v1';
+const CACHE = 'tkr-v2';
 const ASSETS = [
   './', './index.html', './manifest.json',
-  './icon-192.png', './icon-512.png', './apple-touch-icon.png'
+  './icon-192.png', './icon-512.png', './apple-touch-icon.png',
+  './img/olga.jpg', './img/anna.jpg', './img/sergey.jpg',
+  './img/dmitry.jpg', './img/elena.jpg', './img/anton.jpg'
 ];
 
 self.addEventListener('install', e => {
